@@ -21,13 +21,17 @@ def main():
 
     while True:
         #Store and update the file list in input folder in the list.
-        input_list = natsorted(os.listdir(inputpath))
+        fltr_input_list = [filename for filename in os.listdir(inputpath) if not filename.startswith('.')]
+        input_list = natsorted(fltr_input_list)
         for a in input_list:
             #set filename
             filename = a
 
             #Path of folder that contains images
+            
             mainpath = os.path.join(inputpath,filename)
+            fltr_main_list = [filename for filename in os.listdir(mainpath) if not filename.startswith('.')]
+            main_list = natsorted(fltr_main_list)
 
             #Create a new folder to combine multiple pdfs
             editpath = os.path.join(cwd,'edit')
@@ -42,7 +46,7 @@ def main():
       
 
             #Convert images in mainpath to PDF one by one
-            for i in natsorted(os.listdir(mainpath)):
+            for i in main_list:
                 #Set save name
                 editi = pathlib.PurePath(i).stem
                 pdf_name = editpath + "/" +  "PDF_" + str(editi) + ".pdf"
@@ -85,9 +89,9 @@ def main():
 
             print(filename,'End')
 
-        if len(input_list) == 0:        
-            time.sleep(5)
-            print('ALL FINISHED')
-            break
+           
+        time.sleep(5)
+        print('ALL FINISHED')
+        break
 
 main()

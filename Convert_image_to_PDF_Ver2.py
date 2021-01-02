@@ -94,13 +94,15 @@ def main():
                 
                 shutil.move(mainpath,trashpath)
 
-                print(book_list,fileroll,'End')
-            if len(roll_list) == 0:
-                time.sleep(3)
-                print(book_list,'FINISHED')
-        if len(input_list) == 0:        
+                print(fileroll,'End')
+            
+            shutil.rmtree(rollpath)
             time.sleep(3)
-            print('ALL FINISHED')
-            break
+            print(book_list,'FINISHED')
+
+    
+        time.sleep(3)
+        print('ALL FINISHED')
+        break
 
 main()
