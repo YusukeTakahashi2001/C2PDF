@@ -90,7 +90,7 @@ def main():
             print(filename,'End')
 
            
-        time.sleep(5)
+        time.sleep(3)
         print('ALL FINISHED')
         break
 
