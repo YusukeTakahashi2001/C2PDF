@@ -5,6 +5,8 @@ import img2pdf
 import PyPDF2
 #######################
 from PIL import Image
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 import time
 import shutil
 from natsort import natsorted
